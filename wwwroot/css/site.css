@@ -1,0 +1,184 @@
+/* =========================================
+   TEMA AKATSUKI - CATÁLOGO
+========================================= */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* 1. FONDO Y TEXTO GENERAL */
+body {
+    margin-bottom: 60px;
+    background-color: #0a0a0a !important; /* Negro más profundo */
+    background-image: radial-gradient(circle at top center, #1a1a1a 0%, #050505 100%);
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* 2. SOBRESCRIBIR LA BARRA DE NAVEGACIÓN (HEADER) Y FOOTER BLANCOS */
+header .bg-white, header .navbar {
+    background-color: #050505 !important;
+    border-bottom: 2px solid #8a0000 !important;
+    box-shadow: 0 4px 15px rgba(138, 0, 0, 0.6) !important;
+}
+
+footer {
+    background-color: #050505 !important;
+    border-top: 2px solid #8a0000 !important;
+    color: #888 !important;
+}
+
+/* 3. ENLACES DEL MENÚ Y LOGO */
+header .navbar-brand, header .nav-link {
+    color: #f2f2f2 !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+    header .nav-link:hover, header .navbar-brand:hover {
+        color: #ff2a2a !important;
+        text-shadow: 0 0 10px rgba(255, 42, 42, 0.8);
+    }
+
+/* 4. TÍTULOS Y TEXTOS (El "Mi Catálogo") */
+h1, h2, h3 {
+    color: #cf142b; /* Rojo Akatsuki */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    border-bottom: 1px solid #cf142b;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* 5. ENLACES GENERALES (Filtros de categoría: Todos | Hack and Slash...) */
+a {
+    color: #cf142b;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+    a:hover {
+        color: #ff4d4d;
+        text-shadow: 0 0 8px rgba(255, 77, 77, 0.6);
+    }
+
+/* 6. CONVERTIR LA LISTA DE JUEGOS EN TARJETAS SANGRIENTAS (Sin tocar HTML) */
+ul {
+    list-style: none !important;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+    ul li {
+        background-color: #111;
+        border: 1px solid #333;
+        border-left: 5px solid #cf142b; /* Borde rojo distintivo a la izquierda */
+        padding: 15px 20px;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+        ul li:hover {
+            transform: translateX(10px); /* Se mueve a la derecha al pasar el mouse */
+            border-color: #8a0000;
+            box-shadow: 0 6px 15px rgba(207, 20, 43, 0.3);
+            background-color: #151515;
+        }
+
+/* 7. BOTÓN "AGREGAR VIDEOJUEGO" */
+a:contains("Agregar"), a[href*="Create"], a.btn-primary {
+    display: inline-block;
+    background-color: #8a0000 !important;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #ff2a2a;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(138, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+    a:contains("Agregar"):hover, a[href*="Create"]:hover, a.btn-primary:hover {
+        background-color: #cf142b !important;
+        box-shadow: 0 0 20px rgba(255, 42, 42, 0.8);
+        transform: scale(1.05);
+    }
+
+/* 8. ANIMACIÓN DE LAS PLUMAS */
+#feather-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.feather {
+    position: absolute;
+    top: -10vh;
+    opacity: 0;
+    animation-name: fall, sway, fade;
+    animation-timing-function: linear, ease-in-out, ease-in-out;
+    animation-iteration-count: infinite, infinite, infinite;
+    animation-direction: normal, alternate, normal;
+    /* El aura roja del genjutsu */
+    filter: drop-shadow(0px 0px 4px rgba(255, 0, 0, 0.8));
+}
+
+@keyframes fall {
+    0% {
+        top: -10vh;
+    }
+
+    100% {
+        top: 110vh;
+    }
+}
+
+@keyframes sway {
+    0% {
+        transform: translateX(-50px) rotate(-30deg);
+    }
+
+    100% {
+        transform: translateX(50px) rotate(30deg);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
